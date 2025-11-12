@@ -1,12 +1,3 @@
-# 1. Declaring variable and setting their values
-cyborgs = 10
-# write your code here
+cyborgs: int = 10
 robots = 2
 droids = 5
-# 2. Setting values for variables in a single line
-# write your code here
-
-
-# 3. Declaring with type annotation
-cyborgs: int = 10
-# write your code here
