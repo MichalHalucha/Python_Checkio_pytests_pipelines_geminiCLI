@@ -10,12 +10,15 @@ def test_mult_two_basic_cases():
     assert mult_two(7, 1) == 7
     assert mult_two(1, 7) == 7
 
+
 def test_mult_two_large_numbers():
     assert mult_two(10**6, 10**6) == 10**12
+
 
 def test_mult_two_returns_int():
     result = mult_two(2, 3)
     assert isinstance(result, int)
+
 
 @pytest.mark.parametrize(
     "a, b, expected",

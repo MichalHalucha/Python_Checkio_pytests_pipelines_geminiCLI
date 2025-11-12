@@ -19,9 +19,18 @@ from src.Is_Even import is_even
         (-200, True),
     ],
     ids=[
-        "zero", "one", "two", "three", "four", "odd_99", "even_100",
-        "neg_1", "neg_2", "neg_odd_101", "neg_even_200",
-    ]
+        "zero",
+        "one",
+        "two",
+        "three",
+        "four",
+        "odd_99",
+        "even_100",
+        "neg_1",
+        "neg_2",
+        "neg_odd_101",
+        "neg_even_200",
+    ],
 )
 def test_is_even_parametrized(num, expected):
     assert is_even(num) == expected

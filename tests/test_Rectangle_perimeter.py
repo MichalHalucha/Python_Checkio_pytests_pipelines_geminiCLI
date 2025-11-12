@@ -18,6 +18,7 @@ def rectangles():
         (0.5, 2),  # float + int
     ]
 
+
 def test_matches_formula(rectangles):
     for length, width in rectangles:
         expected = 2 * (length + width)
@@ -38,7 +39,15 @@ def test_matches_formula(rectangles):
         (0.5, 2, 5.0),
     ],
     ids=[
-        "2x4", "3x5", "10x20", "7x2", "1x1", "1x5", "4x1", "100x100", "0.5x2",
+        "2x4",
+        "3x5",
+        "10x20",
+        "7x2",
+        "1x1",
+        "1x5",
+        "4x1",
+        "100x100",
+        "0.5x2",
     ],
 )
 def test_examples_parametrized(length, width, expected):
@@ -57,4 +66,6 @@ def test_examples_parametrized(length, width, expected):
 )
 def test_return_type_depends_on_inputs(length, width, expected_type):
     result = rectangle_perimeter(length, width)
-    assert isinstance(result, expected_type), f"Expected {expected_type.__name__}, got {type(result).__name__}"
+    assert isinstance(
+        result, expected_type
+    ), f"Expected {expected_type.__name__}, got {type(result).__name__}"
