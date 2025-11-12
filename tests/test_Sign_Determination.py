@@ -13,5 +13,5 @@ from src.Integer_Sign_Determination import determine_sign
         (-1000, "negative"),
     ],
 )
-def test_mult_two_parametrized(a, expected):
+def test_mult_two_parametrized(a: int, expected: str) -> None:
     assert determine_sign(a) == expected

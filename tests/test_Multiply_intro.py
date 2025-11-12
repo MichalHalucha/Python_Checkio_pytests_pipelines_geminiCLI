@@ -1,9 +1,12 @@
+from __future__ import annotations
+
 import pytest
+from typing import Any
 
 from src.Multiply_intro import mult_two
 
 
-def test_mult_two_basic_cases():
+def test_mult_two_basic_cases() -> None:
     assert mult_two(2, 3) == 6
     assert mult_two(-2, 3) == -6
     assert mult_two(0, 99) == 0
@@ -11,11 +14,11 @@ def test_mult_two_basic_cases():
     assert mult_two(1, 7) == 7
 
 
-def test_mult_two_large_numbers():
+def test_mult_two_large_numbers() -> None:
     assert mult_two(10**6, 10**6) == 10**12
 
 
-def test_mult_two_returns_int():
+def test_mult_two_returns_int() -> None:
     result = mult_two(2, 3)
     assert isinstance(result, int)
 
@@ -30,5 +33,5 @@ def test_mult_two_returns_int():
         (7, 7, 49),
     ],
 )
-def test_mult_two_parametrized(a, b, expected):
+def test_mult_two_parametrized(a: int, b: int, expected: int) -> None:
     assert mult_two(a, b) == expected

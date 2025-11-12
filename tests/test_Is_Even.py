@@ -32,5 +32,5 @@ from src.Is_Even import is_even
         "neg_even_200",
     ],
 )
-def test_is_even_parametrized(num, expected):
+def test_is_even_parametrized(num: int, expected: bool) -> None:
     assert is_even(num) == expected

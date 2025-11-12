@@ -1,11 +1,12 @@
 import pytest
+from typing import Any, List, Tuple, Type
 
 from src.Rectangle_perimeter import rectangle_perimeter
 
 
 # --- Fixtura z zestawami danych (różne przypadki, w tym float) ---
 @pytest.fixture
-def rectangles():
+def rectangles() -> List[Tuple[Any, Any]]:
     return [
         (2, 4),
         (3, 5),
@@ -19,10 +20,10 @@ def rectangles():
     ]
 
 
-def test_matches_formula(rectangles):
+def test_matches_formula(rectangles: List[Tuple[Any, Any]]) -> None:
     for length, width in rectangles:
-        expected = 2 * (length + width)
-        assert rectangle_perimeter(length, width) == pytest.approx(expected)
+        expected = 2 * (length + width)  # type: ignore[operator]
+        assert rectangle_perimeter(length, width) == pytest.approx(expected)  # type: ignore[arg-type]
 
 
 @pytest.mark.parametrize(
@@ -50,8 +51,8 @@ def test_matches_formula(rectangles):
         "0.5x2",
     ],
 )
-def test_examples_parametrized(length, width, expected):
-    assert rectangle_perimeter(length, width) == pytest.approx(expected)
+def test_examples_parametrized(length: Any, width: Any, expected: Any) -> None:
+    assert rectangle_perimeter(length, width) == pytest.approx(expected)  # type: ignore[arg-type]
 
 
 @pytest.mark.parametrize(
@@ -64,8 +65,10 @@ def test_examples_parametrized(length, width, expected):
         (2, 0.5, float),
     ],
 )
-def test_return_type_depends_on_inputs(length, width, expected_type):
-    result = rectangle_perimeter(length, width)
+def test_return_type_depends_on_inputs(
+    length: Any, width: Any, expected_type: Type[object]
+) -> None:
+    result = rectangle_perimeter(length, width)  # type: ignore[arg-type]
     assert isinstance(
         result, expected_type
     ), f"Expected {expected_type.__name__}, got {type(result).__name__}"
