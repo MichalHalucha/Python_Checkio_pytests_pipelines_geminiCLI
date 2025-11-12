@@ -11,4 +11,3 @@ def test_if_ef_is_empty() -> None:
 
 def test_func_returns_none_and_does_nothing() -> None:
     assert func() is None
-

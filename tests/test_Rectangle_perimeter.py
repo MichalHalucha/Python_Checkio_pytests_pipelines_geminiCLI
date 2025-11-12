@@ -1,12 +1,13 @@
+from typing import Any
+
 import pytest
-from typing import Any, List, Tuple, Type
 
 from src.Rectangle_perimeter import rectangle_perimeter
 
 
 # --- Fixtura z zestawami danych (różne przypadki, w tym float) ---
 @pytest.fixture
-def rectangles() -> List[Tuple[Any, Any]]:
+def rectangles() -> list[tuple[Any, Any]]:
     return [
         (2, 4),
         (3, 5),
@@ -20,7 +21,7 @@ def rectangles() -> List[Tuple[Any, Any]]:
     ]
 
 
-def test_matches_formula(rectangles: List[Tuple[Any, Any]]) -> None:
+def test_matches_formula(rectangles: list[tuple[Any, Any]]) -> None:
     for length, width in rectangles:
         expected = 2 * (length + width)  # type: ignore[operator]
         assert rectangle_perimeter(length, width) == pytest.approx(expected)  # type: ignore[arg-type]
@@ -66,7 +67,7 @@ def test_examples_parametrized(length: Any, width: Any, expected: Any) -> None:
     ],
 )
 def test_return_type_depends_on_inputs(
-    length: Any, width: Any, expected_type: Type[object]
+    length: Any, width: Any, expected_type: type[object]
 ) -> None:
     result = rectangle_perimeter(length, width)  # type: ignore[arg-type]
     assert isinstance(

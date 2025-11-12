@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import pytest
-from typing import Any
 
 from src.Multiply_intro import mult_two
 
