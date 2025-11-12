@@ -15,7 +15,7 @@ extend-exclude = '''
 '''
 
 [tool.ruff]
-line-length = 88
+line-length = 120
 target-version = "py311"
 exclude = [".venv", "venv", ".checkiopy", "build", "dist", ".mypy_cache", ".ruff_cache", ".pytest_cache"]
 # Przykładowe reguły – dopasuj pod siebie:

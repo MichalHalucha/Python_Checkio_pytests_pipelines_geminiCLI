@@ -1,6 +1,7 @@
 import inspect
-from src.Empty_Function import func
+
 from src import Empty_Function as Ef
+from src.Empty_Function import func
 
 
 def test_if_ef_is_empty():
