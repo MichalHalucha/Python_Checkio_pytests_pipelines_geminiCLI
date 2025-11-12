@@ -1,5 +1,7 @@
 import pytest
-from src.Take_And_Return_Argument import func   # ⬅️ zmień 'example' na nazwę swojego modułu, np. 'Empty_Function'
+
+from src.Take_And_Return_Argument import func
+
 
 def test_func_returns_same_value_for_int():
     assert func(42) == 42

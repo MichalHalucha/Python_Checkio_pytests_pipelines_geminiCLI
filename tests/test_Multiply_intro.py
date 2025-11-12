@@ -2,6 +2,7 @@ import pytest
 
 from src.Multiply_intro import mult_two
 
+
 def test_mult_two_basic_cases():
     assert mult_two(2, 3) == 6
     assert mult_two(-2, 3) == -6

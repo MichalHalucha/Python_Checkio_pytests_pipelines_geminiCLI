@@ -1,5 +1,6 @@
 from src import Variable_Declaration_and_Value_Setting
 
+
 def test_variable_values_exist():
     """Check that variables are defined and have expected values."""
     assert Variable_Declaration_and_Value_Setting.cyborgs == 10

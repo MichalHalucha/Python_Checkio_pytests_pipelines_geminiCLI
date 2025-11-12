@@ -1,5 +1,7 @@
 import pytest
+
 from src.Integer_Sign_Determination import determine_sign
+
 
 @pytest.mark.parametrize(
     "a, expected",
