@@ -10,8 +10,7 @@ from src.Just_Fizz import checkio
         (6, "Fizz"),
         (10, "10"),
         (7, "7"),
-    ]
+    ],
 )
-
 def test_just_fizz(input: int, output: str):
     assert checkio(input) == output
