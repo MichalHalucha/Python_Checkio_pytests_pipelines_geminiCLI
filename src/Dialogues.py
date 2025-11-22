@@ -1,35 +1,34 @@
+from __future__ import annotations
+
 VOWELS = "aeiou"
 
 
 class Chat:
-    def __init__(self):
-        self.human = None
-        self.robot = None
-        self._messages = []  # lista (nadawca, tekst)
+    def __init__(self) -> None:
+        self.human: Human | None = None
+        self.robot: Robot | None = None
+        self._messages: list[tuple[Human | Robot, str]] = []
 
-    def connect_human(self, human):
+    def connect_human(self, human: Human) -> None:
         self.human = human
         human.chat = self
 
-    def connect_robot(self, robot):
+    def connect_robot(self, robot: Robot) -> None:
         self.robot = robot
         robot.chat = self
 
-    def add_message(self, sender, text):
-        # zapisujemy obiekt nadawcy i treść
+    def add_message(self, sender: Human | Robot, text: str) -> None:
         self._messages.append((sender, text))
 
-    def show_human_dialogue(self):
-        # normalny tekst
-        lines = []
+    def show_human_dialogue(self) -> str:
+        lines: list[str] = []
         for sender, text in self._messages:
             lines.append(f"{sender.name} said: {text}")
         return "\n".join(lines)
 
-    def show_robot_dialogue(self):
-        # robot widzi 0/1
+    def show_robot_dialogue(self) -> str:
         def encode(msg: str) -> str:
-            result = []
+            result: list[str] = []
             for ch in msg:
                 if ch.lower() in VOWELS:
                     result.append("0")
@@ -37,27 +36,27 @@ class Chat:
                     result.append("1")
             return "".join(result)
 
-        lines = []
+        lines: list[str] = []
         for sender, text in self._messages:
             lines.append(f"{sender.name} said: {encode(text)}")
         return "\n".join(lines)
 
 
 class Human:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, name: str) -> None:
+        self.name: str = name
         self.chat: Chat | None = None
 
-    def send(self, message: str):
+    def send(self, message: str) -> None:
         if self.chat is not None:
             self.chat.add_message(self, message)
 
 
 class Robot:
-    def __init__(self, serial_number):
-        self.name = serial_number
+    def __init__(self, serial_number: str) -> None:
+        self.name: str = serial_number
         self.chat: Chat | None = None
 
-    def send(self, message: str):
+    def send(self, message: str) -> None:
         if self.chat is not None:
             self.chat.add_message(self, message)

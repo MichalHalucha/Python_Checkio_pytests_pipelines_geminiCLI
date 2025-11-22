@@ -1,7 +1,7 @@
 class Friend:
     def __init__(self, name: str):
         self.name = name
-        self._last_invite = None  # tu trzymamy ostatnie zaproszenie
+        self._last_invite: str | None = None  # tu trzymamy ostatnie zaproszenie
 
     def show_invite(self) -> str:
         if self._last_invite is None:
